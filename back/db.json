@@ -59,7 +59,7 @@
     {
       "id": 8,
       "name": "Gato Persa",
-      "price": 100,
+      "price": "130",
       "stars": 3,
       "image": "https://i.ibb.co/1zPPBjx/gato.jpg",
       "description": "No sé si es legal vender animales online..."

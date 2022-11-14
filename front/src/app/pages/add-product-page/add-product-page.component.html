@@ -1,20 +1,23 @@
 <main (emitId)="changeId(id)" >
   <h1>Creación/edición de productos</h1>
   <div class="addProduct" >
-    <div class="gallery-box" *ngIf="product.id> 0">
-      <img src={{product.image}} alt="">
-      <p>{{product.description}}</p>
-      <h2>${{product.price}}</h2>
-      <div class="info-botton">
-          <div *ngIf="product.stars != -1">
-            <ngb-rating *ngIf="product.stars != undefined" [max]="5" [(rate)]="product.stars" [readonly]="true"></ngb-rating>
-          </div>
-          <p>{{product.stars}}</p>
-          <button (click)="delete(product.id)">Eliminar</button>
+    <div class="div-form">
+      <div class="gallery-box" *ngIf="product.id> 0">
+        <img src={{product.image}} alt="">
+        <p>{{product.description}}</p>
+        <h2>${{product.price}}</h2>
+        <div class="info-botton">
+            <div *ngIf="product.stars != -1">
+              <ngb-rating *ngIf="product.stars != undefined" [max]="5" [(rate)]="product.stars" [readonly]="true"></ngb-rating>
+            </div>
+            <p>{{product.stars}}</p>
+            <button (click)="delete(product.id)">Eliminar</button>
 
+        </div>
       </div>
     </div>
-    <div class="div-form">
+
+    <div>
       <form *ngIf="product.id===0" [formGroup]="newProductForm" (ngSubmit)="onSubmit()" class="form-container">
         <label for="name">Nombre del producto:<input type="text" formControlName="name" placeholder="Por ej: Tiesto para planta"></label>
         <label for="description">Descripción:<input type="text" formControlName="description" placeholder="Por ej: Lo más vendido de este mes"></label>
@@ -24,7 +27,7 @@
         <button >Guardar</button>
       </form>
     </div>
-    <div *ngIf="product.id> 0" (emitProduct)="changeProduct(product)">
+    <div *ngIf="product.id> 0" (emitProduct)="changeProduct(product)" >
       <form [formGroup]="editProductForm" (ngSubmit)="editProduct1(product)" class="form-container">
         <label for="name">Nombre del producto:<input type="text" formControlName="name" placeholder="Por ej: Tiesto para planta"></label>
         <label for="description">Descripción:<input type="text" formControlName="description" placeholder="Por ej: Lo más vendido de este mes"></label>
