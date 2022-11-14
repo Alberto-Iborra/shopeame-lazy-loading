@@ -1,0 +1,19 @@
+<div class="gallery">
+  <ng-container *ngFor="let product of globalProducts">
+    <div class="gallery-box">
+      <img src={{product.image}} alt="">
+      <p>{{product.description}}</p>
+      <h2>${{product.price}}</h2>
+      <div class="info-botton">
+          <div *ngIf="product.stars != -1">
+            <ngb-rating *ngIf="product.stars != undefined" [max]="5" [(rate)]="product.stars" [readonly]="true"></ngb-rating>
+          </div>
+          <p>{{product.stars}}</p>
+          <a routerLink="/addProduct/{{product.id}}">
+            <button>Editar</button>
+          </a>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
